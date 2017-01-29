@@ -1,0 +1,146 @@
+<class 'bs4.element.ResultSet'>
+1
+!!!!!!!! COMENZANDO NOTICIA
+<div class="block-articles">
+ <div class="row">
+  <div class="columns large-12">
+   <!-- article-box-featured -->
+   <div class="block-article article-featured">
+    <div class="article-header">
+     <div class="article-title hide-for-small-only">
+      <a href="/16722-la-rebelion-del-24">
+       LA REBELION DEL 24
+      </a>
+     </div>
+    </div>
+    <div class="article-image">
+     <a class="image-container relative object-fit" href="/16722-la-rebelion-del-24">
+      <img alt="Los organismos de derechos humanos habían calificado la medida del Gobierno como una “provocación”. " class=" show-for-medium-only" src="/sites/pagina12/files/styles/focal_16_9_960x540/public/rest_images/na01fo01_25.jpg?itok=V9jJY--Z"/>
+      <img alt="Los organismos de derechos humanos habían calificado la medida del Gobierno como una “provocación”. " class=" show-for-large" src="/sites/pagina12/files/styles/focal_16_9_960x540/public/rest_images/na01fo01_25.jpg?itok=V9jJY--Z"/>
+     </a>
+    </div>
+    <div class="article-body">
+     <div class="article-title-suffix">
+      <a href="/16722-la-rebelion-del-24">
+       Fuerte resistencia al decreto que transformó en feriado “móvil” el 24 de marzo. Varias provincias y numerosos municipios ya decretaron asueto para esa fecha y hasta el secretario de Derechos Humanos bonaerense se opuso a la medida. Estela de Carlotto ratificó que la marcha no cambia de fecha.
+      </a>
+     </div>
+     <ul class="social-media" share-data="headline" share-img="/sites/pagina12/files/styles/focal700x525/public/rest_images/na01fo01_25.jpg?itok=1S_gKpon" share-title="LA REBELION DEL 24" share-url="/16722-la-rebelion-del-24">
+      <li class="facebook">
+       <button class="share" title="Compartir">
+        <img src="/media/assets/social/facebook-small.svg?v=0.13.0"/>
+       </button>
+      </li>
+      <li class="twitter">
+       <button class="share" title="Compartir">
+        <img src="/media/assets/social/twitter-small.svg?v=0.13.0"/>
+       </button>
+      </li>
+      <li class="mail">
+       <button class="share mail" title="Compartir esta nota">
+        <img src="/media/assets/social/mail-small.svg?v=0.13.0"/>
+       </button>
+      </li>
+      <li class="whatsapp show-for-small-only">
+       <button class="share" title="Compartir esta nota">
+        <img src="/media/assets/social/whatsapp-small.svg?v=0.13.0"/>
+       </button>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="column large-12">
+   <div class="related-articles hide-for-small-only">
+    <div class="row">
+     <div class="columns large-4 medium-4">
+      <!-- article-box-related -->
+      <div class="block-article article-related">
+       <div class="article-image">
+        <a class="relative" href="/16684-hablaron-trump-y-pena-nieto-y-lo-unico-que-acordaron-fue-el-">
+         <img alt="La visita de Trump a México, antes de ganar las elecciones, le causó muchos problemas a Peña Nieto." class=" show-for-small-only" src="/sites/pagina12/files/styles/focal700x525/public/2017-01/na19fo01_26.jpg?itok=K2JCi73y"/>
+         <img alt="La visita de Trump a México, antes de ganar las elecciones, le causó muchos problemas a Peña Nieto." class=" show-for-medium-only" src="/sites/pagina12/files/styles/focal300x225/public/2017-01/na19fo01_26.jpg?itok=xXSPxYJ_"/>
+         <img alt="La visita de Trump a México, antes de ganar las elecciones, le causó muchos problemas a Peña Nieto." class=" show-for-large" src="/sites/pagina12/files/styles/focal400x300/public/2017-01/na19fo01_26.jpg?itok=tF5q3bd4"/>
+        </a>
+       </div>
+       <div class="article-body">
+        <div class="article-title-prefix">
+         <a href="/16684-hablaron-trump-y-pena-nieto-y-lo-unico-que-acordaron-fue-el-">
+          Escala la crisis entre México y EE.UU.
+         </a>
+        </div>
+        <div class="article-title-suffix">
+         <a href="/16684-hablaron-trump-y-pena-nieto-y-lo-unico-que-acordaron-fue-el-">
+          Hablaron Trump y Peña Nieto y lo único que acordaron fue el silencio público
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="columns large-4 medium-4">
+      <!-- article-box-related -->
+      <div class="block-article article-related">
+       <div class="article-image">
+        <a class="relative" href="/16723-estela-de-carlotto-el-presidente-debe-retroceder-ya-lo-hizo-">
+         <img alt="La presidenta de Abuelas de Plaza de Mayo, Estela de Carlotto. " class=" show-for-small-only" src="/sites/pagina12/files/styles/focal700x525/public/2017-01/na02fo01_23.jpg?itok=KCvUBWqC"/>
+         <img alt="La presidenta de Abuelas de Plaza de Mayo, Estela de Carlotto. " class=" show-for-medium-only" src="/sites/pagina12/files/styles/focal300x225/public/2017-01/na02fo01_23.jpg?itok=DuwZqE9_"/>
+         <img alt="La presidenta de Abuelas de Plaza de Mayo, Estela de Carlotto. " class=" show-for-large" src="/sites/pagina12/files/styles/focal400x300/public/2017-01/na02fo01_23.jpg?itok=5v9ifzKx"/>
+        </a>
+       </div>
+       <div class="article-body">
+        <div class="article-title-prefix">
+         <a href="/16723-estela-de-carlotto-el-presidente-debe-retroceder-ya-lo-hizo-">
+          Reclamo de la titular de Abuelas sobre el 24
+         </a>
+        </div>
+        <div class="article-title-suffix">
+         <a href="/16723-estela-de-carlotto-el-presidente-debe-retroceder-ya-lo-hizo-">
+          Estela de Carlotto: “El Presidente debe retroceder, ya lo hizo en otros temas”
+         </a>
+        </div>
+        <div class="article-author">
+         <strong>
+          Por
+         </strong>
+         <a href="/autores/249-adriana-meyer">
+          Adriana Meyer
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="columns large-4 medium-4">
+      <!-- article-box-related -->
+      <div class="block-article article-related">
+       <div class="article-image">
+        <a class="relative" href="/16666-apenas-volvio-a-su-casa-lavo-la-ropa-que-llevaba-puesta-y-ti">
+         <img alt="Las cámaras de seguridad registraron también cuando el acusado salía del edificio." class=" show-for-small-only" src="/sites/pagina12/files/styles/focal700x525/public/2017-01/na15fo01_23.jpg?itok=0UzKKmDy"/>
+         <img alt="Las cámaras de seguridad registraron también cuando el acusado salía del edificio." class=" show-for-medium-only" src="/sites/pagina12/files/styles/focal300x225/public/2017-01/na15fo01_23.jpg?itok=MDmEpnPc"/>
+         <img alt="Las cámaras de seguridad registraron también cuando el acusado salía del edificio." class=" show-for-large" src="/sites/pagina12/files/styles/focal400x300/public/2017-01/na15fo01_23.jpg?itok=WxbQHhzF"/>
+        </a>
+       </div>
+       <div class="article-body">
+        <div class="article-title-prefix">
+         <a href="/16666-apenas-volvio-a-su-casa-lavo-la-ropa-que-llevaba-puesta-y-ti">
+          El acusado del crimen de Caballito, muy pulcro
+         </a>
+        </div>
+        <div class="article-title-suffix">
+         <a href="/16666-apenas-volvio-a-su-casa-lavo-la-ropa-que-llevaba-puesta-y-ti">
+          Apenas volvió a su casa lavó la ropa que llevaba puesta y tiró el calzado a la basura
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<class 'bs4.element.ResultSet'>
+1
+Imprimiendo article-title
+<div class="article-title hide-for-small-only"><a href="/16722-la-rebelion-del-24">LA REBELION DEL 24</a></div>
+<class 'str'>
+--------------------------------
