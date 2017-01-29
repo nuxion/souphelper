@@ -41,6 +41,8 @@ class SoupWrapper:
     def linksInBlocks(self, strTag):
         self.dictLinks = {}
         for b in self.allBlocks:
+            print ("strTag: " + strTag)
+            print (b)
             element = b.find(class_=re.compile(strTag))
             link = element.find("a").attrs['href']
             text = element.text
@@ -78,10 +80,20 @@ if __name__ == '__main__':
     print ("Imprimiendo bloque entero")
     noticias.printAllBlocks()
     print ("Imprimiendo titulo y link")
-    noticias.linksInBlocks("^article-title-suffix$")
-    for (link, text) in noticias.dictLinks.items():
-        print ("links is: " + link + "text is: " + text)
+    # No todos los bloques tienen suffix, 
+    # agregar un metodo que verifique la existencia del  bloque
+    # agregar un handler para la excepcion de que no exista un tag
+    #noticias.linksInBlocks("^article-title-suffix$")
+    noticias.linksInBlocks("^article-title$")
+    #for (link, text) in noticias.dictLinks.items():
+    #    print ("links is: " + link + "text is: " + text)
         #newUrl = uri + link 
         #paginaEntera = SoupWrapper(get
+    uri2 = "https://www.pagina12.com.ar/16889-el-poder-de-la-memoria"
+    pagina = SoupWrapper(getURL(uri2))
+    pagina.getAllBlocks("^article-text$")
+    #print (type(pagina.allBlocks[0]))
+    print (pagina.allBlocks[0].text)
+    
         
         
