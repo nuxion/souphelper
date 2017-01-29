@@ -38,7 +38,17 @@ class SoupWrapper:
         print (len(result))
         self.allBlocks = result
     #def extractLink(self):
+    def findAttrs (self, soup, strTag, strAttrs):
+        """ Busca el atributo un objeto del tipo soup, y devuelve el valor. """
+        r = str(soup.find(strTag).attrs[strAttrs])
+        return r 
+        
+        
     def linksInBlocks(self, strTag):
+        """ Recorre self.allBlocks buscando el link y el texto.
+        Recibe un string con el tag a buscar. 
+        Setea dictLinks, un diccionario con el par link / text. """
+        
         self.dictLinks = {}
         for b in self.allBlocks:
             print ("strTag: " + strTag)
@@ -60,8 +70,10 @@ class SoupWrapper:
             print (b)
             print (type(str(b)))
             print ("--------------------------------")
-        
-        #return text
+    
+    def getTextDivBlock(self, strTag):
+        # Agregar excepcion en caso de NoneType
+        return str(self.allBlocks[0].find(class_=re.compile(strTag)))
 
 if __name__ == '__main__':
     
@@ -92,6 +104,7 @@ if __name__ == '__main__':
     uri2 = "https://www.pagina12.com.ar/16889-el-poder-de-la-memoria"
     pagina = SoupWrapper(getURL(uri2))
     pagina.getAllBlocks("^article-text$")
+    
     #print (type(pagina.allBlocks[0]))
     print (pagina.allBlocks[0].text)
     
