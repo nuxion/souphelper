@@ -38,11 +38,13 @@ class SoupWrapper:
         print (len(result))
         self.allBlocks = result
     #def extractLink(self):
-    def iterator(self, strTag):
+    def linksInBlocks(self, strTag):
+        self.dictLinks = {}
         for b in self.allBlocks:
             element = b.find(class_=re.compile(strTag))
             link = element.find("a").attrs['href']
             text = element.text
+            self.dictLinks[link] = text
             print (link)
             print (text)
             print ("----")
@@ -76,4 +78,10 @@ if __name__ == '__main__':
     print ("Imprimiendo bloque entero")
     noticias.printAllBlocks()
     print ("Imprimiendo titulo y link")
-    noticias.iterator("^article-title-suffix$")
+    noticias.linksInBlocks("^article-title-suffix$")
+    for (link, text) in noticias.dictLinks.items():
+        print ("links is: " + link + "text is: " + text)
+        #newUrl = uri + link 
+        #paginaEntera = SoupWrapper(get
+        
+        
