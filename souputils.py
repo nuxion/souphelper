@@ -22,7 +22,7 @@ def getURL(strUri):
     #print (html_doc.status_code) # debug
     return strHtml.text
 
-class SoupWrapper:
+class SoupHelper:
     
     def __init__(self, strHtml):
         # setting up the soup object
@@ -90,11 +90,11 @@ if __name__ == '__main__':
     """ Al wrapper yo le paso el codigo html, significa que no hace 
     falta que le pase todo el sitio, sino la porcion de codigo con la que 
     quiero trabajar. """
-    paginaEntera = SoupWrapper(getURL(uri)) 
+    paginaEntera = SoupHelper(getURL(uri)) 
     paginaEntera.getAllBlocks("^block-articles$")  
     #paginaEntera.printAllBlocks()
     print ("!!!!!!!! COMENZANDO NOTICIA")
-    noticias = SoupWrapper(str(paginaEntera.allBlocks[0]))
+    noticias = SoupHelper(str(paginaEntera.allBlocks[0]))
     print (noticias.soupbase.prettify())
     noticias.getAllBlocks("^article-body$")
     print ("Imprimiendo bloque entero")
@@ -108,11 +108,11 @@ if __name__ == '__main__':
     #for (link, text) in noticias.dictLinks.items():
     #    print ("links is: " + link + "text is: " + text)
         #newUrl = uri + link 
-        #paginaEntera = SoupWrapper(get
+        #paginaEntera = SoupHelper(get
         
     ####### Trabajando con una noticia #####
     uri2 = "https://www.pagina12.com.ar/16889-el-poder-de-la-memoria"
-    pagina = SoupWrapper(getURL(uri2))
+    pagina = SoupHelper(getURL(uri2))
     pagina.getAllBlocks("^article-text$")
     
     
