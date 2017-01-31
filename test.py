@@ -6,5 +6,10 @@ if __name__ == "__main__":
     pagina = souputils.SoupHelper(souputils.getURL(uri2))
     pagina.getBlock("^article-date$", 1)
     print(pagina.findAttrs("time","datetime"))
+    # Testing error
+    print (pagina.findAttrs("asd", "datetime"))
+    print (pagina.findAttrs("time", "lalala"))
+    
+
     
 

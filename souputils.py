@@ -46,8 +46,16 @@ class SoupHelper:
         self.allBlocks = result
     #def extractLink(self):
     def findAttrs (self, strTag, strAttrs):
-        """ Busca el atributo un objeto del tipo soup, y devuelve el valor. """
-        r = str(self.block.find(strTag).attrs[strAttrs])
+        """ Busca el atributo un objeto del tipo soup, y devuelve el valor. """ 
+        #print (self.block.attrs)
+        #print (strTag)
+        try:
+            r = str(self.block.find(strTag).attrs[strAttrs]) 
+        except AttributeError as e:
+            r = "Error with tag: " + strTag 
+            #r = "Error with tag: " + strTag + str(e)
+        except KeyError as e: 
+            r = "Error with attribute: " + str(e)
         return r 
         
     def linksInBlocks(self, strTag):
