@@ -29,6 +29,13 @@ class SoupWrapper:
         self.baseStrHtml= str(strHtml)
         self.soupbase=BeautifulSoup(self.baseStrHtml, "lxml")
         
+    def getBlock(self, strTag, l): 
+        """ A diferencia de getAllBlocks, puedo es un wrapper de
+        find_all para setear el limite de la cantidad de resultados. """
+        result = self.soupbase.find_all(class_=re.compile(strTag), limit=l)
+        print (type(result))
+        print (len(result))
+        self.block = result[0]
         
     def getAllBlocks (self, strTag): 
         """ Se le pasa un tag especifico para que busque
@@ -38,11 +45,10 @@ class SoupWrapper:
         print (len(result))
         self.allBlocks = result
     #def extractLink(self):
-    def findAttrs (self, soup, strTag, strAttrs):
+    def findAttrs (self, strTag, strAttrs):
         """ Busca el atributo un objeto del tipo soup, y devuelve el valor. """
-        r = str(soup.find(strTag).attrs[strAttrs])
+        r = str(self.block.find(strTag).attrs[strAttrs])
         return r 
-        
         
     def linksInBlocks(self, strTag):
         """ Recorre self.allBlocks buscando el link y el texto.
@@ -77,6 +83,8 @@ class SoupWrapper:
 
 if __name__ == '__main__':
     
+    
+    ### LEYENDO BLOQUE general ###
     uri = "http://pagina12.com.ar"
     #print (getURL(uri)) 
     """ Al wrapper yo le paso el codigo html, significa que no hace 
@@ -96,17 +104,22 @@ if __name__ == '__main__':
     # agregar un metodo que verifique la existencia del  bloque
     # agregar un handler para la excepcion de que no exista un tag
     #noticias.linksInBlocks("^article-title-suffix$")
-    noticias.linksInBlocks("^article-title$")
+    noticias.linksInBlocks("^article-title")
     #for (link, text) in noticias.dictLinks.items():
     #    print ("links is: " + link + "text is: " + text)
         #newUrl = uri + link 
         #paginaEntera = SoupWrapper(get
+        
+    ####### Trabajando con una noticia #####
     uri2 = "https://www.pagina12.com.ar/16889-el-poder-de-la-memoria"
     pagina = SoupWrapper(getURL(uri2))
     pagina.getAllBlocks("^article-text$")
     
+    
     #print (type(pagina.allBlocks[0]))
     print (pagina.allBlocks[0].text)
+    pagina.getBlock("^article-date$", 1)
+    print(pagina.findAttrs("time","datetime"))
     
         
         
