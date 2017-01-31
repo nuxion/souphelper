@@ -23,28 +23,37 @@ def getURL(strUri):
     return strHtml.text
 
 class SoupHelper:
+    """ Clase que funciona como wrapper, validacion y demas para
+    BeautifulSoup. """
     
     def __init__(self, strHtml):
+        """ Recibe un string que es el codigo html con el cual quiero trabajar. """
         # setting up the soup object
         self.baseStrHtml= str(strHtml)
-        self.soupbase=BeautifulSoup(self.baseStrHtml, "lxml")
+        self.soupbase=BeautifulSoup(self.baseStrHtml, "lxml") 
+        # En el futuro, permitir que de forma opcional
+        # se pueda instancia tambien 
+        # self.allBlocks, pasandole el string con el tag de los bloques. 
         
+    def getAllBlocks (self, strTag): 
+        """ Se le pasa un tag especifico para que busque
+        todos los elementos que existan en el html. """ 
+        # tal vez en un futuro agregar un raise exception para None, 
+        # en caso de error. 
+        result = self.soupbase.find_all(class_=re.compile(strTag))
+        print (type(result))
+        print (len(result))
+        self.allBlocks = result
+    
     def getBlock(self, strTag, l): 
         """ A diferencia de getAllBlocks, puedo es un wrapper de
-        find_all para setear el limite de la cantidad de resultados. """
+        find_all para setear el limite de la cantidad de resultados. 
+        setea self.block con un objeto del tipo Soup. """
         result = self.soupbase.find_all(class_=re.compile(strTag), limit=l)
         print (type(result))
         print (len(result))
         self.block = result[0]
         
-    def getAllBlocks (self, strTag): 
-        """ Se le pasa un tag especifico para que busque
-        todos los elementos que existan en el html. """
-        result = self.soupbase.find_all(class_=re.compile(strTag))
-        print (type(result))
-        print (len(result))
-        self.allBlocks = result
-    #def extractLink(self):
     def findAttrs (self, strTag, strAttrs):
         """ Busca el atributo un objeto del tipo soup, y devuelve el valor. """ 
         #print (self.block.attrs)
@@ -86,24 +95,33 @@ class SoupHelper:
             print ("--------------------------------")
     
     def getTextDivBlock(self, strTag):
+        """ Devuel un string el texto dentro del tag pasado como 
+        parametro. """
         # Agregar excepcion en caso de NoneType
         return str(self.allBlocks[0].find(class_=re.compile(strTag)))
 
 if __name__ == '__main__':
     
+    """ Ejemplo de un posible circuito para el uso del Helper. """
     
-    ### LEYENDO BLOQUE general ###
+    """ Primero inicio toda la pagina. """
     uri = "http://pagina12.com.ar"
-    #print (getURL(uri)) 
+    #print (getURL(uri)) # debug 
+    # Instancio el objeto llamando al metodo getURL() que
+    # me devuelve un string con todo el codigo HTML del sitio.
+    paginaEntera = SoupHelper(getURL(uri)) 
+    # Busco todo los bloques que en engloben "bloc-articles"
+    paginaEntera.getAllBlocks("^block-articles$")  
+    
     """ Al wrapper yo le paso el codigo html, significa que no hace 
     falta que le pase todo el sitio, sino la porcion de codigo con la que 
     quiero trabajar. """
-    paginaEntera = SoupHelper(getURL(uri)) 
-    paginaEntera.getAllBlocks("^block-articles$")  
-    #paginaEntera.printAllBlocks()
     print ("!!!!!!!! COMENZANDO NOTICIA")
+    
+    """ Repensar esta instancia,  tal vez en vez de iniciar un nuevo objeto
+    se pueda trabajar con un for recorriendo allBlocks[]. """
     noticias = SoupHelper(str(paginaEntera.allBlocks[0]))
-    print (noticias.soupbase.prettify())
+    #print (noticias.soupbase.prettify())#debug
     noticias.getAllBlocks("^article-body$")
     print ("Imprimiendo bloque entero")
     noticias.printAllBlocks()
@@ -112,12 +130,14 @@ if __name__ == '__main__':
     # agregar un metodo que verifique la existencia del  bloque
     # agregar un handler para la excepcion de que no exista un tag
     #noticias.linksInBlocks("^article-title-suffix$")
+    # linksInBlocks() genera un diccionario con el par link / texto
     noticias.linksInBlocks("^article-title")
-    #for (link, text) in noticias.dictLinks.items():
-    #    print ("links is: " + link + "text is: " + text)
-        #newUrl = uri + link 
-        #paginaEntera = SoupHelper(get
+    for (link, text) in noticias.dictLinks.items():
+        print ("links is: " + link + "text is: " + text)
+        newUrl = uri + link 
         
+    
+    """ Ejemplo, ahora trabajando con un link en particular. """
     ####### Trabajando con una noticia #####
     uri2 = "https://www.pagina12.com.ar/16889-el-poder-de-la-memoria"
     pagina = SoupHelper(getURL(uri2))
