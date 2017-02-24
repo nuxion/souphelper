@@ -9,18 +9,26 @@ def getURL(strUri):
     try:
         strHtml = requests.get(strUri, headers=headers)
         # If a http error related, this will rise a exception (such as 404, 403 etc)
-        # http://stackoverflow.com/questions/16511337/correct-way-to-try-except-using-python-requests-module
+        # http://stackoverflow.com/questions/16511337/correct-way-to-try-except-using-python-requests-module 
+        if strHtml.text:
+            result = strHtml.text
         strHtml.raise_for_status()
     except requests.exceptions.HTTPError as err: 
-        print (err)
+        print (err) 
+        result = "NULL"
     except requests.exceptions.Timeout as t:
         print (t)
+        result = "NULL"
+    except requests.exceptions.ProxyError as p:
+        print (p)
+        result = "NULL"
     except requests.exceptions.RequestException as e: #general exception 
         print (e)
+        result = "NULL"
         sys.exit(1)
     # print(html_doc.text) # debug
     #print (html_doc.status_code) # debug
-    return strHtml.text
+    return result
 
 class SoupHelper:
     """ Clase que funciona como wrapper, validacion y demas para
@@ -111,7 +119,8 @@ if __name__ == '__main__':
     # me devuelve un string con todo el codigo HTML del sitio.
     paginaEntera = SoupHelper(getURL(uri)) 
     # Busco todo los bloques que en engloben "bloc-articles"
-    paginaEntera.getAllBlocks("^block-articles$")  
+    paginaEntera.getAllBlocks("^block-articles$")
+    print (paginaEntera.allBlocks[0])
     
     """ Al wrapper yo le paso el codigo html, significa que no hace 
     falta que le pase todo el sitio, sino la porcion de codigo con la que 
